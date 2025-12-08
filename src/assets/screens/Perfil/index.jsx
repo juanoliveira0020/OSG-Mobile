@@ -1,0 +1,138 @@
+import { ScrollView, Image, TouchableOpacity } from "react-native";
+import {
+  Container,
+  Header,
+  BackButton,
+  BackgroundImage,
+  ProfileImage,
+  Name,
+  Username,
+  PointsCard,
+  PointsText,
+  StatsContainer,
+  Stat,
+  StatNumber,
+  StatLabel,
+  SectionTitle,
+  BadgesContainer,
+  Badge,
+  PlusCard,
+  PlusText,
+  MenuItem,
+  MenuText,
+  Divider,
+} from "./styles";
+import { Ionicons } from "@expo/vector-icons";
+
+export default function Perfil({ navigation }) {
+  return (
+    <Container>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <BackgroundImage source={require("../../images/profile_banner.jpg")} />
+
+        {/* Voltar para Menu */}
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <BackButton>
+            <Ionicons name="arrow-undo" size={22} color="#B84EF2" />
+          </BackButton>
+        </TouchableOpacity>
+
+        <ProfileImage source={require("../../images/profile_photo.jpg")} />
+        <Name>Poker Ghost</Name>
+        <Username>@poker_ghost321</Username>
+
+        <PointsCard>
+          <PointsText>Pontos: 777.777</PointsText>
+        </PointsCard>
+
+        <StatsContainer>
+          <Stat>
+            <StatNumber>5</StatNumber>
+            <StatLabel>Matérias</StatLabel>
+          </Stat>
+          <Stat>
+            <StatNumber>1,921</StatNumber>
+            <StatLabel>Últimos Pontos</StatLabel>
+          </Stat>
+          <Stat>
+            <StatNumber>12</StatNumber>
+            <StatLabel>Amigos</StatLabel>
+          </Stat>
+        </StatsContainer>
+
+        <SectionTitle>Conquistas</SectionTitle>
+        <BadgesContainer>
+          <Badge source={require("../../images/badge1.jpg")} />
+          <Badge source={require("../../images/badge2.jpg")} />
+          <Badge source={require("../../images/badge3.jpg")} />
+          <Badge source={require("../../images/badge1.jpg")} />
+          <Badge source={require("../../images/badge2.jpg")} />
+        </BadgesContainer>
+
+        <PlusCard>
+          <PlusText>Obter Plus? Ganhe o dobro de xp e mais recompensas</PlusText>
+        </PlusCard>
+
+        {/* MENSAGENS */}
+        <TouchableOpacity onPress={() => navigation.navigate("ChatList")}>
+          <MenuItem>
+            <Image source={require("../../images/message_icon.jpg")} />
+            <MenuText>Mensagem</MenuText>
+          </MenuItem>
+        </TouchableOpacity>
+
+        {/* RANKING */}
+        <TouchableOpacity onPress={() => navigation.navigate("FiltroRanking")}>
+          <MenuItem>
+            <Image source={require("../../images/ranking_icon.jpg")} />
+            <MenuText>Ranking</MenuText>
+          </MenuItem>
+        </TouchableOpacity>
+
+        {/* EDITAR PERFIL */}
+        
+          <MenuItem>
+            <Image source={require("../../images/edit_icon.jpg")} />
+            <MenuText>Editar Perfil</MenuText>
+          </MenuItem>
+       
+
+        <Divider />
+
+        {/* IDIOMA */}
+      
+          <MenuItem>
+            <Image source={require("../../images/language_icon.jpg")} />
+            <MenuText>Idioma</MenuText>
+          </MenuItem>
+       
+
+        {/* SEGURANÇA */}
+        
+          <MenuItem>
+            <Image source={require("../../images/security_icon.jpg")} />
+            <MenuText>Configurações de Segurança</MenuText>
+          </MenuItem>
+        
+
+        {/* AJUDA */}
+        
+          <MenuItem>
+            <Image source={require("../../images/help_icon.jpg")} />
+            <MenuText>Ajuda e Suporte</MenuText>
+          </MenuItem>
+       
+
+        {/* LOGOUT */}
+        
+           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <MenuItem>
+            <Image source={require("../../images/logout_icon.jpg")} />
+            <MenuText>Fazer Logout</MenuText>
+          </MenuItem>
+        </TouchableOpacity>
+        
+      </ScrollView>
+    </Container>
+  );
+}

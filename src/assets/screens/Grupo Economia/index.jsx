@@ -22,7 +22,7 @@ import {
 } from "./styles";
 import { Ionicons } from "@expo/vector-icons";
 
-export default function Economia() {
+export default function Economia({navigation}) {
   const [messages, setMessages] = useState([
     { id: 1, text: "Olá, grupo!", sender: "outro" },
     { id: 2, text: "Tudo bem com vocês?", sender: "outro" },
